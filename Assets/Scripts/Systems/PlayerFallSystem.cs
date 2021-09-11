@@ -22,7 +22,7 @@ namespace Systems
                 ref var mov = ref _filter.Get2(i);
 
 
-                mov.Displacement = new Vector3(0,  _config.FallSpeed * _config.FallSpeedAnimationCurve.Evaluate(_timer) * Time.deltaTime, 0);
+                mov.Displacement = new Vector3(0,  -_config.FallSpeed * _config.FallSpeedAnimationCurve.Evaluate(_timer) * Time.deltaTime, 0);
             
                 _timer += Time.deltaTime;
             }
