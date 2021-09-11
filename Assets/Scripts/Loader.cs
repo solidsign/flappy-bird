@@ -20,6 +20,7 @@ sealed class Loader : MonoBehaviour {
             .Add(new PlayerInputSystem())
             .Add(new MoveSystem())
             .Add(new JumpSystem())
+            .Add(new PlayerFallSystem())
                 
             // register one-frame components (order is important), for example:
             // .OneFrame<TestComponent1> ()
