@@ -1,6 +1,8 @@
-﻿namespace Components
+﻿using Leopotam.Ecs;
+
+namespace Components
 {
-    public struct Player
+    public struct Player : IEcsIgnoreInFilter
     {
     }
 }
