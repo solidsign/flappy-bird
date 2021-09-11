@@ -6,5 +6,6 @@ namespace Components
     {
         public PlayerState PlayerState;
         public Rigidbody2D Rigidbody2D;
+        public Transform Transform;
     }
 }
