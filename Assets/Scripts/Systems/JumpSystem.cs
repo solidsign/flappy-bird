@@ -9,9 +9,9 @@ namespace Systems
         private EcsFilter<Movable, JumpEvent> _filter;
         private Configuration _config;
 
-        private float _timer;
-        private float _lastHeight;
-        private float _currentHeight;
+        private float _timer = 0f;
+        private float _lastHeight = 0f;
+        private float _currentHeight = 0f;
         public void Run()
         {
             foreach (var i in _filter)
@@ -20,7 +20,6 @@ namespace Systems
                 if (jumpEvent.JustCalled)
                 {
                     jumpEvent.JustCalled = false;
-                    _timer = 0f;
                 }
 
                 ref var mov = ref _filter.Get1(i);
@@ -34,6 +33,9 @@ namespace Systems
             
                 if (_timer > _config.JumpTime)
                 {
+                    _currentHeight = 0f;
+                    _lastHeight = 0f;
+                    _timer = 0f;
                     _filter.GetEntity(i).Del<JumpEvent>();
                 }
             }
