@@ -19,6 +19,9 @@ namespace Systems
                 ref var jumpEvent = ref _filter.Get2(i);
                 if (jumpEvent.JustCalled)
                 {
+                    _currentHeight = 0f;
+                    _lastHeight = 0f;
+                    _timer = 0f;
                     jumpEvent.JustCalled = false;
                 }
 
