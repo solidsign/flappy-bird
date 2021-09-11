@@ -16,8 +16,10 @@ sealed class Loader : MonoBehaviour {
 #endif
         _systems
             // register your systems here, for example:
+            .Add(new PlayerInitSystem())
             .Add(new PlayerInputSystem())
-            .Add(new PlayerJumpSystem())
+            .Add(new MoveSystem())
+            .Add(new JumpSystem())
                 
             // register one-frame components (order is important), for example:
             // .OneFrame<TestComponent1> ()
