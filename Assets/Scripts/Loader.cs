@@ -1,13 +1,13 @@
 using Leopotam.Ecs;
+using Systems;
 using UnityEngine;
 
 sealed class Loader : MonoBehaviour {
-    EcsWorld _world;
-    EcsSystems _systems;
+    private EcsWorld _world;
+    private EcsSystems _systems;
+    [SerializeField] private Configuration configuration;
 
     private void Start () {
-        // void can be switched to IEnumerator for support coroutines.
-            
         _world = new EcsWorld ();
         _systems = new EcsSystems (_world);
 #if UNITY_EDITOR
@@ -16,9 +16,8 @@ sealed class Loader : MonoBehaviour {
 #endif
         _systems
             // register your systems here, for example:
-            // .Add (new TestSystem1 ())
-            // .Add (new TestSystem2 ())
             .Add(new PlayerInputSystem())
+            .Add(new PlayerJumpSystem())
                 
             // register one-frame components (order is important), for example:
             // .OneFrame<TestComponent1> ()
@@ -26,7 +25,7 @@ sealed class Loader : MonoBehaviour {
                 
             // inject service instances here (order doesn't important), for example:
             // .Inject (new CameraService ())
-            // .Inject (new NavMeshSupport ())
+            .Inject(configuration)
             .Init ();
     }
 
@@ -35,11 +34,9 @@ sealed class Loader : MonoBehaviour {
     }
 
     private void OnDestroy () {
-        if (_systems != null) {
-            _systems.Destroy ();
-            _systems = null;
-            _world.Destroy ();
-            _world = null;
-        }
+        _systems?.Destroy ();
+        _systems = null;
+        _world?.Destroy ();
+        _world = null;
     }
 }
