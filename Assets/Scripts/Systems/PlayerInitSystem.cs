@@ -12,13 +12,16 @@ namespace Systems
             var player = _world.NewEntity();
             var obj = GameObject.FindGameObjectWithTag("Player");
             player
+                .Replace(new Player())
                 .Replace(new Movable
                 {
                     Displacement = Vector3.zero,
+                })
+                .Replace(new MoveComponents
+                {
                     Transform = obj.transform,
                     Rigidbody2D = obj.GetComponent<Rigidbody2D>()
-                })
-                .Replace(new Player());
+                });
         }
     }
 }
