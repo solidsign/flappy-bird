@@ -1,46 +1,45 @@
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Client {
-    sealed class Loader : MonoBehaviour {
-        EcsWorld _world;
-        EcsSystems _systems;
+sealed class Loader : MonoBehaviour {
+    EcsWorld _world;
+    EcsSystems _systems;
 
-        void Start () {
-            // void can be switched to IEnumerator for support coroutines.
+    private void Start () {
+        // void can be switched to IEnumerator for support coroutines.
             
-            _world = new EcsWorld ();
-            _systems = new EcsSystems (_world);
+        _world = new EcsWorld ();
+        _systems = new EcsSystems (_world);
 #if UNITY_EDITOR
-            Leopotam.Ecs.UnityIntegration.EcsWorldObserver.Create (_world);
-            Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create (_systems);
+        Leopotam.Ecs.UnityIntegration.EcsWorldObserver.Create (_world);
+        Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create (_systems);
 #endif
-            _systems
-                // register your systems here, for example:
-                // .Add (new TestSystem1 ())
-                // .Add (new TestSystem2 ())
+        _systems
+            // register your systems here, for example:
+            // .Add (new TestSystem1 ())
+            // .Add (new TestSystem2 ())
+            .Add(new PlayerInputSystem())
                 
-                // register one-frame components (order is important), for example:
-                // .OneFrame<TestComponent1> ()
-                // .OneFrame<TestComponent2> ()
+            // register one-frame components (order is important), for example:
+            // .OneFrame<TestComponent1> ()
+            // .OneFrame<TestComponent2> ()
                 
-                // inject service instances here (order doesn't important), for example:
-                // .Inject (new CameraService ())
-                // .Inject (new NavMeshSupport ())
-                .Init ();
-        }
+            // inject service instances here (order doesn't important), for example:
+            // .Inject (new CameraService ())
+            // .Inject (new NavMeshSupport ())
+            .Init ();
+    }
 
-        void Update () {
-            _systems?.Run ();
-        }
+    private void Update () {
+        _systems?.Run ();
+    }
 
-        void OnDestroy () {
-            if (_systems != null) {
-                _systems.Destroy ();
-                _systems = null;
-                _world.Destroy ();
-                _world = null;
-            }
+    private void OnDestroy () {
+        if (_systems != null) {
+            _systems.Destroy ();
+            _systems = null;
+            _world.Destroy ();
+            _world = null;
         }
     }
 }
