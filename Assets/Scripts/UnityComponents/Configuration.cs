@@ -23,6 +23,10 @@ namespace UnityComponents
         [SerializeField] private float gapSpreading;
         [Tooltip("Size will vary from (gapSize - gapSpreading) to (gapSize + gapSpreading). X should be between 0 and 1")]
         [SerializeField] private AnimationCurve gapSizeAnimationCurve;
+        [Header("Distance Between Obstacles")]
+        [SerializeField] private float distanceBetweenObstaclesSpreading;
+        [Tooltip("Works same as gapSizeAnimationCurve")]
+        [SerializeField] private AnimationCurve distanceBetweenObstaclesAnimationCurve;
         [Header("Obstacle Speed")]
         [SerializeField] private float defaultObstacleSpeed;
         [Tooltip("X and Y should be between 0 and 1")]
@@ -38,5 +42,7 @@ namespace UnityComponents
         public AnimationCurve GapSizeAnimationCurve => gapSizeAnimationCurve;
         public float DefaultObstacleSpeed => defaultObstacleSpeed;
         public AnimationCurve ObstacleSpeedAnimationCurve => obstacleSpeedAnimationCurve;
+        public float DistanceBetweenObstaclesSpreading => distanceBetweenObstaclesSpreading;
+        public AnimationCurve DistanceBetweenObstaclesAnimationCurve => distanceBetweenObstaclesAnimationCurve;
     }
 }
