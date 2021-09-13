@@ -34,9 +34,9 @@ namespace UnityComponents
         [SerializeField] private AnimationCurve gapSizeAnimationCurve;
         
         [Header("Distance Between Obstacles")]
-        [SerializeField] private float distanceBetweenObstaclesSpreading;
+        [SerializeField] private float timeBetweenObstaclesSpreading;
         [Tooltip("Works same as gapSizeAnimationCurve")]
-        [SerializeField] private AnimationCurve distanceBetweenObstaclesAnimationCurve;
+        [SerializeField] private AnimationCurve timeBetweenObstaclesAnimationCurve;
         
         [Header("Obstacle Speed")]
         [SerializeField] private float defaultObstacleSpeed;
@@ -53,8 +53,8 @@ namespace UnityComponents
         public AnimationCurve GapSizeAnimationCurve => gapSizeAnimationCurve;
         public float DefaultObstacleSpeed => defaultObstacleSpeed;
         public AnimationCurve ObstacleSpeedAnimationCurve => obstacleSpeedAnimationCurve;
-        public float DistanceBetweenObstaclesSpreading => distanceBetweenObstaclesSpreading;
-        public AnimationCurve DistanceBetweenObstaclesAnimationCurve => distanceBetweenObstaclesAnimationCurve;
+        public float TimeBetweenObstaclesSpreading => timeBetweenObstaclesSpreading;
+        public AnimationCurve TimeBetweenObstaclesAnimationCurve => timeBetweenObstaclesAnimationCurve;
         public AccessToPipes ObstaclePrefab => obstaclePrefab;
         public float MAXGapY => maxGapY;
         public float MINGapY => minGapY;

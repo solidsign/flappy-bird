@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7091074599381568587}
   - component: {fileID: 7091074599381568584}
-  - component: {fileID: 7091074599381568585}
-  - component: {fileID: 7091074599381568586}
+  - component: {fileID: 4278530368963897026}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -83,28 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!50 &7091074599381568585
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7091074599381568588}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &7091074599381568586
+--- !u!61 &4278530368963897026
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,6 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7091074599443377852}
   - component: {fileID: 7091074599443377853}
+  - component: {fileID: 9090601042856231115}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -177,6 +156,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upperPipe: {fileID: 7091074599381568587}
   bottomPipe: {fileID: 7091074599859118396}
+--- !u!50 &9090601042856231115
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7091074599443377854}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7091074599859118397
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,8 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7091074599859118396}
   - component: {fileID: 7091074599859118393}
-  - component: {fileID: 7091074599859118394}
-  - component: {fileID: 7091074599859118395}
+  - component: {fileID: 2662963722131444117}
   m_Layer: 0
   m_Name: Pipe (1)
   m_TagString: Untagged
@@ -260,28 +259,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7091074599859118394
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7091074599859118397}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &7091074599859118395
+--- !u!61 &2662963722131444117
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
