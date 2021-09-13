@@ -1,4 +1,5 @@
-﻿using Components;
+﻿using System.Globalization;
+using Components;
 using Leopotam.Ecs;
 using UnityComponents;
 using UnityEngine;
@@ -9,17 +10,33 @@ namespace Systems
     {
         private EcsFilter<Obstacle, Pooled> _filter;
         private Configuration _config;
-        private float _timer = 0f;
-        private float _spawnTime = 0f;
+        private float _distanceCounter = 0f;
+        private float _neededDistance = 0f;
         public void Run()
         {
-            if (_timer >= _spawnTime)
+            if (_distanceCounter >= _neededDistance)
             {
-                ResetTimer();
                 SpawnObstacle();
+                ResetDistanceCounter();
             }
-        
-            _timer += Time.deltaTime;
+            AddDistanceToCounter();
+        }
+
+        private void AddDistanceToCounter()
+        {
+            var currentSpeed = _config.DefaultObstacleSpeed *
+                               _config.ObstacleSpeedAnimationCurve.Evaluate(Time.timeSinceLevelLoad /
+                                                                            _config.DifficultyChangePeriodLength);
+            _distanceCounter += currentSpeed * Time.deltaTime;
+        }
+
+        private void ResetDistanceCounter()
+        {
+            _distanceCounter = 0f;
+            _neededDistance =
+                _config.DistanceBetweenObstaclesAnimationCurve.Evaluate(Time.timeSinceLevelLoad /
+                                                                        _config.DifficultyChangePeriodLength) +
+                Random.Range(-_config.DistanceBetweenObstaclesSpreading, _config.DistanceBetweenObstaclesSpreading);
         }
 
         private void SpawnObstacle()
@@ -34,13 +51,6 @@ namespace Systems
             obstacle.UpperPipe.localPosition = new Vector3(0, gapSize / 2f, 0);
             obstacle.WholeObstacle.gameObject.SetActive(true);
             _filter.GetEntity(0).Del<Pooled>();
-        }
-
-        private void ResetTimer()
-        {
-            _timer = 0f;
-            _spawnTime = _config.TimeBetweenObstaclesAnimationCurve.Evaluate(Time.timeSinceLevelLoad / _config.DifficultyChangePeriodLength) +
-                         Random.Range(-_config.TimeBetweenObstaclesSpreading, _config.TimeBetweenObstaclesSpreading);
         }
     }
 }
