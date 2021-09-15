@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896dc05814304987bbb958f4f229cf9c, type: 3}
   m_Name: Configuration
   m_EditorClassIdentifier: 
-  jumpHeight: 5
-  jumpTime: 0.5
+  jumpHeight: 4
+  jumpTime: 0.3
   jumpAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 2.8798196
+      outSlope: 2.8798196
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.04831933
     - serializedVersion: 3
       time: 1
       value: 1
@@ -38,27 +38,173 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  fallSpeed: 15
+  fallSpeed: 35
   fallSpeedAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 2.750472
+      outSlope: 2.750472
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.042016804
     - serializedVersion: 3
       time: 3
       value: 3
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.1761002
+      outSlope: 0.1761002
       tangentMode: 0
       weightedMode: 0
+      inWeight: 0.107142925
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  obstaclePrefab: {fileID: 7091074599443377853, guid: 2899a6cee92bf9e42aae6850d94f512f,
+    type: 3}
+  obstaclePoolSize: 15
+  difficultyChangePeriodLength: 120
+  minObstaclePosX: -10
+  spawnX: 10
+  maxGapY: 4.5
+  minGapY: -4.5
+  gapSpreading: 0.5
+  gapSizeAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 5
+      inSlope: -4.0000014
+      outSlope: -4.0000014
+      tangentMode: 34
+      weightedMode: 0
       inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.18681341
+      value: 4.252746
+      inSlope: 3.437435
+      outSlope: 3.437435
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.10870404
+    - serializedVersion: 3
+      time: 0.5234001
+      value: 2.7623582
+      inSlope: 8.250518
+      outSlope: 8.250518
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.17107503
+    - serializedVersion: 3
+      time: 0.8505084
+      value: 1.6217303
+      inSlope: -4.1870837
+      outSlope: -4.1870837
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.24817811
+      outWeight: 0.6007886
+    - serializedVersion: 3
+      time: 1
+      value: 2
+      inSlope: 2.530374
+      outSlope: 2.530374
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  distanceBetweenObstaclesSpreading: 0.5
+  distanceBetweenObstaclesAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 10
+      inSlope: -7.3346076
+      outSlope: -7.3346076
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.22581589
+      value: 8.343729
+      inSlope: 12.438304
+      outSlope: 12.438304
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.08859881
+    - serializedVersion: 3
+      time: 0.542962
+      value: 7.774356
+      inSlope: 8.314742
+      outSlope: 8.314742
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.20414145
+    - serializedVersion: 3
+      time: 0.7230217
+      value: 7.472235
+      inSlope: 10.808317
+      outSlope: 10.808317
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13430779
+    - serializedVersion: 3
+      time: 0.91486955
+      value: 6.646467
+      inSlope: 18.81903
+      outSlope: 18.81903
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.50796586
+    - serializedVersion: 3
+      time: 1
+      value: 5
+      inSlope: -19.340519
+      outSlope: -19.340519
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  defaultObstacleSpeed: 5
+  obstacleSpeedAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

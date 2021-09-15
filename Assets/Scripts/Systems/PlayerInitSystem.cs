@@ -22,6 +22,7 @@ namespace Systems
                     Transform = obj.transform,
                     Rigidbody2D = obj.GetComponent<Rigidbody2D>()
                 });
+            obj.GetComponent<PlayerDeath>().Entity = player;
         }
     }
 }
