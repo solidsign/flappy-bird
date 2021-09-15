@@ -7,9 +7,11 @@ namespace Systems
     public class ObstacleDeactivateSystem : IEcsRunSystem
     {
         private EcsFilter<Obstacle>.Exclude<Pooled> _filter;
+        private EcsFilter<Dead> _deadPlayer;
         private Configuration _config;
         public void Run()
         {
+            if (!_deadPlayer.IsEmpty()) return;
             foreach (var i in _filter)
             {
                 var obstacle = _filter.Get1(i);

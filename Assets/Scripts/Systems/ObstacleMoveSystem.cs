@@ -8,9 +8,11 @@ namespace Systems
     public class ObstacleMoveSystem : IEcsRunSystem
     {
         private EcsFilter<Obstacle>.Exclude<Pooled> _filter;
+        private EcsFilter<Dead> _deadPlayer;
         private Configuration _config;
         public void Run()
         {
+            if (!_deadPlayer.IsEmpty()) return;
             var currentSpeed = _config.DefaultObstacleSpeed *
                                _config.ObstacleSpeedAnimationCurve.Evaluate(Time.timeSinceLevelLoad / _config.DifficultyChangePeriodLength);
             var displacement = currentSpeed * Time.deltaTime * Vector3.left;

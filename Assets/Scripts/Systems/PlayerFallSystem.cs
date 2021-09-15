@@ -7,7 +7,7 @@ namespace Systems
 {
     public class PlayerFallSystem : IEcsRunSystem
     {
-        private EcsFilter<Player, Movable>.Exclude<JumpEvent> _filter;
+        private EcsFilter<Player, Movable>.Exclude<JumpEvent, Dead> _filter;
         private Configuration _config;
 
         private float _timer = 0f;

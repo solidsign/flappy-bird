@@ -6,7 +6,7 @@ namespace Systems
 {
     public class PlayerInputSystem : IEcsRunSystem
     {
-        private EcsFilter<Player> _filter;
+        private EcsFilter<Player>.Exclude<Dead> _filter;
         public void Run()
         {
             if (!Input.GetKeyDown(KeyCode.Space)) return;

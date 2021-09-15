@@ -9,11 +9,13 @@ namespace Systems
     public class ObstacleSpawnSystem : IEcsRunSystem
     {
         private EcsFilter<Obstacle, Pooled> _filter;
+        private EcsFilter<Dead> _deadPlayer;
         private Configuration _config;
         private float _distanceCounter = 0f;
         private float _neededDistance = 0f;
         public void Run()
         {
+            if(!_deadPlayer.IsEmpty()) return;
             if (_distanceCounter >= _neededDistance)
             {
                 SpawnObstacle();

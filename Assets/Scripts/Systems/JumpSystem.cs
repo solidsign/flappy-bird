@@ -7,7 +7,7 @@ namespace Systems
 {
     public class JumpSystem : IEcsRunSystem
     {
-        private EcsFilter<Movable, JumpEvent> _filter;
+        private EcsFilter<Movable, JumpEvent>.Exclude<Dead> _filter;
         private Configuration _config;
 
         private float _timer = 0f;
