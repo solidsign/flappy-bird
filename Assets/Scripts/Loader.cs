@@ -6,8 +6,9 @@ using UnityEngine;
 sealed class Loader : MonoBehaviour {
     private EcsWorld _world;
     private EcsSystems _systems;
-    [SerializeField] private Configuration configuration;
 
+    [SerializeField] private Configuration configuration;
+    [SerializeField] private UI ui;
     private void Start () {
         _world = new EcsWorld ();
         _systems = new EcsSystems (_world);
@@ -28,6 +29,7 @@ sealed class Loader : MonoBehaviour {
             .Add(new ObstacleSpawnSystem())
             .Add(new ObstacleMoveSystem())
             
+            .Add(new GameOverSystem())
                 
             // register one-frame components (order is important), for example:
             // .OneFrame<TestComponent1> ()
@@ -35,6 +37,7 @@ sealed class Loader : MonoBehaviour {
                 
             // inject service instances here (order doesn't important), for example:
             .Inject(configuration)
+            .Inject(ui)
             .Init ();
     }
 
