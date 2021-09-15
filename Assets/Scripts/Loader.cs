@@ -20,13 +20,13 @@ sealed class Loader : MonoBehaviour {
         Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create (_systems);
 #endif
         _systems
+            .Add(new PlayerInputSystem())
             .Add(new GameOverSystem())
             .Add(new RestartGameSystem())
             
             .Add(new PlayerInitSystem())
             .Add(new ObstacleInitSystem())
             
-            .Add(new PlayerInputSystem())
             .Add(new MoveSystem())
             .Add(new JumpSystem())
             .Add(new PlayerFallSystem())
@@ -40,6 +40,7 @@ sealed class Loader : MonoBehaviour {
                 
             // register one-frame components (order is important), for example:
             .OneFrame<RestartEvent>()
+            .OneFrame<JumpInputEvent>()
                 
             // inject service instances here (order doesn't important), for example:
             .Inject(configuration)

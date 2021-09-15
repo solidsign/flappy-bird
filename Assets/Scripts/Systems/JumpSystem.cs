@@ -7,7 +7,8 @@ namespace Systems
 {
     public class JumpSystem : IEcsRunSystem
     {
-        private EcsFilter<Movable, JumpEvent>.Exclude<Dead> _filter;
+        private EcsFilter<Movable>.Exclude<Dead> _filter;
+        private EcsFilter<JumpInputEvent> _jump;
         private Configuration _config;
 
         private float _timer = 0f;
@@ -17,15 +18,13 @@ namespace Systems
         {
             foreach (var i in _filter)
             {
-                ref var jumpEvent = ref _filter.Get2(i);
-                if (jumpEvent.JustCalled)
+                if(!_jump.IsEmpty())
                 {
                     _currentHeight = 0f;
                     _lastHeight = 0f;
                     _timer = 0f;
-                    jumpEvent.JustCalled = false;
+                    _filter.GetEntity(i).Replace(new Jumping());
                 }
-
                 ref var mov = ref _filter.Get1(i);
 
                 _currentHeight = _config.JumpHeight * _config.JumpAnimationCurve.Evaluate(_timer / _config.JumpTime);
@@ -40,7 +39,7 @@ namespace Systems
                     _currentHeight = 0f;
                     _lastHeight = 0f;
                     _timer = 0f;
-                    _filter.GetEntity(i).Del<JumpEvent>();
+                    _filter.GetEntity(i).Del<Jumping>();
                 }
             }
         }
