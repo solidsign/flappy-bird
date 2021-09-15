@@ -7,7 +7,7 @@ namespace Systems
 {
     public class JumpSystem : IEcsRunSystem
     {
-        private EcsFilter<Movable>.Exclude<Dead> _filter;
+        private EcsFilter<Movable, Player>.Exclude<Dead> _filter;
         private EcsFilter<JumpInputEvent> _jump;
         private Configuration _config;
 
