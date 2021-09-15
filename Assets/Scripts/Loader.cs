@@ -23,6 +23,7 @@ sealed class Loader : MonoBehaviour {
             .Add(new PlayerInputSystem())
             .Add(new GameOverSystem())
             .Add(new RestartGameSystem())
+            .Add(new ScoreSystem())
             
             .Add(new PlayerInitSystem())
             .Add(new ObstacleInitSystem())
@@ -37,10 +38,12 @@ sealed class Loader : MonoBehaviour {
             .Add(new ObstacleMoveSystem())
             
             
+            
                 
             // register one-frame components (order is important), for example:
-            .OneFrame<RestartEvent>()
             .OneFrame<JumpInputEvent>()
+            .OneFrame<RestartEvent>()
+
                 
             // inject service instances here (order doesn't important), for example:
             .Inject(configuration)

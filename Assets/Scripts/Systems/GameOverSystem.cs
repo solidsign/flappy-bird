@@ -20,9 +20,7 @@ namespace Systems
             }
 
             if (_playerInput.IsEmpty()) return;
-            
-            var restart = _world.NewEntity();
-            restart.Replace(new RestartEvent());
+            _world.NewEntity().Replace(new RestartEvent());
         }
     }
 }
