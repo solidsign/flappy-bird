@@ -9,7 +9,6 @@ namespace Systems
     {
         private EcsFilter<Player, Movable>.Exclude<JumpEvent, Dead> _filter;
         private Configuration _config;
-
         private float _timer = 0f;
         public void Run()
         {

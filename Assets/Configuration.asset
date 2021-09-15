@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896dc05814304987bbb958f4f229cf9c, type: 3}
   m_Name: Configuration
   m_EditorClassIdentifier: 
+  startPlayerPosition: {x: -4, y: 1, z: 0}
   jumpHeight: 4
   jumpTime: 0.3
   jumpAnimationCurve:
@@ -66,7 +67,7 @@ MonoBehaviour:
   obstaclePrefab: {fileID: 7091074599443377853, guid: 2899a6cee92bf9e42aae6850d94f512f,
     type: 3}
   obstaclePoolSize: 15
-  difficultyChangePeriodLength: 120
+  difficultyChangePeriodLength: 30
   minObstaclePosX: -10
   spawnX: 10
   maxGapY: 4.5

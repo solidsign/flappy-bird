@@ -1,6 +1,6 @@
-﻿using System.Globalization;
-using Components;
+﻿using Components;
 using Leopotam.Ecs;
+using Services;
 using UnityComponents;
 using UnityEngine;
 
@@ -11,6 +11,7 @@ namespace Systems
         private EcsFilter<Obstacle, Pooled> _filter;
         private EcsFilter<Dead> _deadPlayer;
         private Configuration _config;
+        private Timer _timer;
         private float _distanceCounter = 0f;
         private float _neededDistance = 0f;
         public void Run()
@@ -27,7 +28,7 @@ namespace Systems
         private void AddDistanceToCounter()
         {
             var currentSpeed = _config.DefaultObstacleSpeed *
-                               _config.ObstacleSpeedAnimationCurve.Evaluate(Time.timeSinceLevelLoad /
+                               _config.ObstacleSpeedAnimationCurve.Evaluate(_timer.TimeSinceLevelStart /
                                                                             _config.DifficultyChangePeriodLength);
             _distanceCounter += currentSpeed * Time.deltaTime;
         }
@@ -36,7 +37,7 @@ namespace Systems
         {
             _distanceCounter = 0f;
             _neededDistance =
-                _config.DistanceBetweenObstaclesAnimationCurve.Evaluate(Time.timeSinceLevelLoad /
+                _config.DistanceBetweenObstaclesAnimationCurve.Evaluate(_timer.TimeSinceLevelStart /
                                                                         _config.DifficultyChangePeriodLength) +
                 Random.Range(-_config.DistanceBetweenObstaclesSpreading, _config.DistanceBetweenObstaclesSpreading);
         }
@@ -44,7 +45,7 @@ namespace Systems
         private void SpawnObstacle()
         {
             var obstacle = _filter.Get1(0);
-            var gapSize = _config.GapSizeAnimationCurve.Evaluate(Time.timeSinceLevelLoad / _config.DifficultyChangePeriodLength) +
+            var gapSize = _config.GapSizeAnimationCurve.Evaluate(_timer.TimeSinceLevelStart / _config.DifficultyChangePeriodLength) +
                           Random.Range(-_config.GapSpreading, _config.GapSpreading);
             var gapY = Random.Range(_config.MINGapY + gapSize / 2, _config.MAXGapY - gapSize / 2);
         

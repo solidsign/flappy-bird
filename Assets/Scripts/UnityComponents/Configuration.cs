@@ -6,6 +6,7 @@ namespace UnityComponents
     public class Configuration : ScriptableObject
     {
         [Header("Player")]
+        [SerializeField] private Vector3 startPlayerPosition;
         [Header("Jump properties")]
         [SerializeField] private float jumpHeight;
         [SerializeField] private float jumpTime;
@@ -43,6 +44,7 @@ namespace UnityComponents
         [Tooltip("X and Y should be between 0 and 1")]
         [SerializeField] private AnimationCurve obstacleSpeedAnimationCurve;
 
+
         public AnimationCurve JumpAnimationCurve => jumpAnimationCurve;
         public float JumpHeight => jumpHeight;
         public float JumpTime => jumpTime;
@@ -62,5 +64,6 @@ namespace UnityComponents
         public float MINObstaclePosX => minObstaclePosX;
 
         public float SpawnX => spawnX;
+        public Vector3 StartPlayerPosition => startPlayerPosition;
     }
 }

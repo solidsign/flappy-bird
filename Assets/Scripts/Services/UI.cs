@@ -1,11 +1,23 @@
 ﻿using UnityEngine;
 
-[System.Serializable]
-public class UI
+namespace Services
 {
-    [SerializeField] private GameObject loseScreen;
-    public void ShowLoseScreen()
+    [System.Serializable]
+    public class UI
     {
-        loseScreen.SetActive(true);
+        [SerializeField] private GameObject loseScreen;
+        public bool UIDrawn { get; private set; } = false;
+
+        public void ShowLoseScreen()
+        {
+            loseScreen.SetActive(true);
+            UIDrawn = true;
+        }
+
+        public void HideLoseScreen()
+        {
+            UIDrawn = false;
+            loseScreen.SetActive(false);
+        }
     }
 }
