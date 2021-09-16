@@ -57,6 +57,7 @@ namespace Systems
 
         private void ResetScore()
         {
+            PlayerPrefs.SetInt("_highscore", _highscore);
             _score = 0;
             _ui.ScoreText = _score;
         }
