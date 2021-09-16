@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Components;
 using Leopotam.Ecs;
 using Services;
@@ -12,6 +13,12 @@ sealed class Loader : MonoBehaviour {
     [SerializeField] private Configuration configuration;
     [SerializeField] private UI ui;
     [SerializeField] private ScoreUI scoreUI;
+    [Header("Audio")]
+    private AudioSource _sfxSource;
+    private List<AudioClip> _jumpSounds;
+    private List<AudioClip> _scoreSounds;
+    private List<AudioClip> _highscoreSounds;
+    private List<AudioClip> _loseSounds;
     private void Start () {
         _world = new EcsWorld ();
         _systems = new EcsSystems (_world);
@@ -38,6 +45,7 @@ sealed class Loader : MonoBehaviour {
             .Add(new ObstacleMoveSystem())
             
             .Add(new ScoreSystem())
+            
             
             
             
