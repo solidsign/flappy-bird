@@ -521,8 +521,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cf4dc5db9927ac94eb8a7e686ef66438, type: 3}
   - {fileID: 8300000, guid: 1df5f8f17c786e44891357ad3c0edf87, type: 3}
   - {fileID: 8300000, guid: 23c96a417f42b164c9c1880ff1e5d109, type: 3}
-  scoreSounds: []
-  highscoreSounds: []
+  scoreSounds:
+  - {fileID: 8300000, guid: a83d68001e51d1145ba46382b6d4f487, type: 3}
+  - {fileID: 8300000, guid: bfb6b27261ca8d54f9d1322d7f71186b, type: 3}
+  - {fileID: 8300000, guid: 27a2e0f7b12aaf848b39c2ac3e77fc86, type: 3}
+  - {fileID: 8300000, guid: 7ada99daeb967fb46afbf49c9c146e78, type: 3}
+  highscoreSounds:
+  - {fileID: 8300000, guid: 63cd810aaaee8d448a714d90c8e8dd39, type: 3}
+  - {fileID: 8300000, guid: 37ebdae2e29c9a34d9e2f71a74c45987, type: 3}
+  - {fileID: 8300000, guid: 26aa7e00ff4f8c247aec0dedc75f9528, type: 3}
+  - {fileID: 8300000, guid: 47d90e26b9998b54e9997bbdd3fc393b, type: 3}
   loseSounds:
   - {fileID: 8300000, guid: 4352ef0afa53b91429f8530a072a85ff, type: 3}
 --- !u!4 &392030773

@@ -22,9 +22,20 @@ namespace Systems
             {
                 if (_obstacles.Get1(i).WholeObstacle.position.x < _config.StartPlayerPosition.x)
                 {
-                    AdjustScore();
+                    bool newHighscore = AdjustScore();
                     var obstacle = _obstacles.GetEntity(i);
-                    obstacle.Replace(new Counted());
+                    if (newHighscore)
+                    {
+                        obstacle
+                            .Replace(new Counted())
+                            .Replace(new HighscoreSound());
+                    }
+                    else
+                    {
+                        obstacle
+                            .Replace(new Counted())
+                            .Replace(new ScoreSound());
+                    }
                 }
             }
 
@@ -34,13 +45,14 @@ namespace Systems
             }
         }
 
-        private void AdjustScore()
+        private bool AdjustScore()
         {
             ++_score;
             _ui.ScoreText = _score;
-            if (_highscore >= _score) return;
+            if (_highscore >= _score) return false;
             _highscore = _score;
             _ui.HighscoreText = _score;
+            return true;
         }
 
         private void ResetScore()

@@ -48,10 +48,14 @@ sealed class Loader : MonoBehaviour {
             
             .Add(new SoundPlaySystem<JumpSound>(sfxSource, jumpSounds))
             .Add(new SoundPlaySystem<LoseSound>(sfxSource, loseSounds))
+            .Add(new SoundPlaySystem<ScoreSound>(sfxSource, scoreSounds))
+            .Add(new SoundPlaySystem<HighscoreSound>(sfxSource, highscoreSounds))
                 
             // register one-frame components (order is important), for example:
             .OneFrame<JumpSound>()
             .OneFrame<LoseSound>()
+            .OneFrame<ScoreSound>()
+            .OneFrame<HighscoreSound>()
             .OneFrame<JumpInputEvent>()
             .OneFrame<RestartEvent>()
 
