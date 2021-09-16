@@ -473,7 +473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386955489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.83936, y: -1.4414277, z: -7.6711187}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -514,6 +514,16 @@ MonoBehaviour:
   scoreUI:
     scoreText: {fileID: 1719145952}
     highscoreText: {fileID: 1142020330}
+  sfxSource: {fileID: 600365425}
+  jumpSounds:
+  - {fileID: 8300000, guid: 26e5d150cd665c04a90da5f3e341b533, type: 3}
+  - {fileID: 8300000, guid: b484b667ff645e843b54b087af78c7a0, type: 3}
+  - {fileID: 8300000, guid: cf4dc5db9927ac94eb8a7e686ef66438, type: 3}
+  - {fileID: 8300000, guid: 1df5f8f17c786e44891357ad3c0edf87, type: 3}
+  - {fileID: 8300000, guid: 23c96a417f42b164c9c1880ff1e5d109, type: 3}
+  scoreSounds: []
+  highscoreSounds: []
+  loseSounds: []
 --- !u!4 &392030773
 Transform:
   m_ObjectHideFlags: 0
@@ -811,7 +821,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600365424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.83936, y: -1.4414277, z: -7.6711187}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

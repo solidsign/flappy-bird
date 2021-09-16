@@ -14,11 +14,11 @@ sealed class Loader : MonoBehaviour {
     [SerializeField] private UI ui;
     [SerializeField] private ScoreUI scoreUI;
     [Header("Audio")]
-    private AudioSource _sfxSource;
-    private List<AudioClip> _jumpSounds;
-    private List<AudioClip> _scoreSounds;
-    private List<AudioClip> _highscoreSounds;
-    private List<AudioClip> _loseSounds;
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private List<AudioClip> jumpSounds;
+    [SerializeField] private List<AudioClip> scoreSounds;
+    [SerializeField] private List<AudioClip> highscoreSounds;
+    [SerializeField] private List<AudioClip> loseSounds;
     private void Start () {
         _world = new EcsWorld ();
         _systems = new EcsSystems (_world);
@@ -46,11 +46,10 @@ sealed class Loader : MonoBehaviour {
             
             .Add(new ScoreSystem())
             
-            
-            
-            
+            .Add(new SoundPlaySystem<JumpSound>(sfxSource, jumpSounds))
                 
             // register one-frame components (order is important), for example:
+            .OneFrame<JumpSound>()
             .OneFrame<JumpInputEvent>()
             .OneFrame<RestartEvent>()
 

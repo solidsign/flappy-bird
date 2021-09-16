@@ -23,7 +23,7 @@ namespace Systems
                     _currentHeight = 0f;
                     _lastHeight = 0f;
                     _timer = 0f;
-                    _filter.GetEntity(i).Replace(new Jumping());
+                    _filter.GetEntity(i).Replace(new Jumping()).Replace(new JumpSound());
                 }
                 ref var mov = ref _filter.Get1(i);
 
