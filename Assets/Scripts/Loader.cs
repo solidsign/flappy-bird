@@ -11,6 +11,7 @@ sealed class Loader : MonoBehaviour {
     private Timer _timer;
     [SerializeField] private Configuration configuration;
     [SerializeField] private UI ui;
+    [SerializeField] private ScoreUI scoreUI;
     private void Start () {
         _world = new EcsWorld ();
         _systems = new EcsSystems (_world);
@@ -23,7 +24,6 @@ sealed class Loader : MonoBehaviour {
             .Add(new PlayerInputSystem())
             .Add(new GameOverSystem())
             .Add(new RestartGameSystem())
-            .Add(new ScoreSystem())
             
             .Add(new PlayerInitSystem())
             .Add(new ObstacleInitSystem())
@@ -37,6 +37,8 @@ sealed class Loader : MonoBehaviour {
             .Add(new ObstacleSpawnSystem())
             .Add(new ObstacleMoveSystem())
             
+            .Add(new ScoreSystem())
+            
             
             
                 
@@ -48,6 +50,7 @@ sealed class Loader : MonoBehaviour {
             // inject service instances here (order doesn't important), for example:
             .Inject(configuration)
             .Inject(ui)
+            .Inject(scoreUI)
             .Inject(_timer)
             .Init ();
     }

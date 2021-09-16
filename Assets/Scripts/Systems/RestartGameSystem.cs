@@ -26,7 +26,9 @@ namespace Systems
 
             foreach (var i in _obstacles)
             {
-                _obstacles.GetEntity(i).Replace(new Pooled());
+                _obstacles.GetEntity(i)
+                    .Replace(new Pooled())
+                    .Replace(new Counted());
             }
         
             _ui.HideLoseScreen();

@@ -53,7 +53,9 @@ namespace Systems
             obstacle.BottomPipe.localPosition = new Vector3(0, -gapSize / 2f, 0);
             obstacle.UpperPipe.localPosition = new Vector3(0, gapSize / 2f, 0);
             obstacle.WholeObstacle.gameObject.SetActive(true);
-            _filter.GetEntity(0).Del<Pooled>();
+            var entity = _filter.GetEntity(0);
+            entity.Del<Pooled>();
+            entity.Del<Counted>();
         }
     }
 }

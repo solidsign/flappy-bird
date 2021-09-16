@@ -23,7 +23,8 @@ namespace Systems
                         BottomPipe = obstacle.BottomPipe,
                         UpperPipe = obstacle.UpperPipe
                     })
-                    .Replace(new Pooled());
+                    .Replace(new Pooled())
+                    .Replace(new Counted());
                 obstacle.gameObject.SetActive(false);
             }
         }

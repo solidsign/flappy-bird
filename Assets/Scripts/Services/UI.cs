@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 namespace Services
 {
@@ -7,13 +6,10 @@ namespace Services
     public class UI
     {
         [SerializeField] private GameObject loseScreen;
-        [SerializeField] private Text scoreText;
+        
         public bool UIDrawn { get; private set; } = false;
 
-        public int ScoreText
-        {
-            set => scoreText.text = value.ToString();
-        }
+        
 
         public void ShowLoseScreen()
         {
