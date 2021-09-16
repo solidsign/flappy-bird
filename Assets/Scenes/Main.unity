@@ -523,7 +523,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 23c96a417f42b164c9c1880ff1e5d109, type: 3}
   scoreSounds: []
   highscoreSounds: []
-  loseSounds: []
+  loseSounds:
+  - {fileID: 8300000, guid: 4352ef0afa53b91429f8530a072a85ff, type: 3}
 --- !u!4 &392030773
 Transform:
   m_ObjectHideFlags: 0

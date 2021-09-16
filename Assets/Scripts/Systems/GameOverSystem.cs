@@ -17,6 +17,7 @@ namespace Systems
             if (!_ui.UIDrawn)
             {
                 _ui.ShowLoseScreen();
+                _world.NewEntity().Replace(new LoseSound());
             }
 
             if (_playerInput.IsEmpty()) return;
