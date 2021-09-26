@@ -10,6 +10,7 @@ sealed class Loader : MonoBehaviour {
     private EcsWorld _world;
     private EcsSystems _systems;
     private Timer _timer;
+    [SerializeField] private Animator playerAnimator;
     [SerializeField] private Configuration configuration;
     [SerializeField] private UI ui;
     [SerializeField] private ScoreUI scoreUI;
@@ -65,6 +66,7 @@ sealed class Loader : MonoBehaviour {
             .Inject(ui)
             .Inject(scoreUI)
             .Inject(_timer)
+            .Inject(playerAnimator)
             .Init ();
     }
 

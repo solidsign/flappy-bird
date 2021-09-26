@@ -10,7 +10,9 @@ namespace Systems
         private EcsFilter<Movable, Player>.Exclude<Dead> _filter;
         private EcsFilter<JumpInputEvent> _jump;
         private Configuration _config;
+        private Animator _playerAnimator;
 
+        private static readonly int Jump = Animator.StringToHash("_jump");
         private float _timer = 0f;
         private float _lastHeight = 0f;
         private float _currentHeight = 0f;
@@ -24,6 +26,7 @@ namespace Systems
                     _lastHeight = 0f;
                     _timer = 0f;
                     _filter.GetEntity(i).Replace(new Jumping()).Replace(new JumpSound());
+                    _playerAnimator.SetTrigger(Jump);
                 }
                 ref var mov = ref _filter.Get1(i);
 
