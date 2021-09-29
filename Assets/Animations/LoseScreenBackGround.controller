@@ -120,8 +120,7 @@ AnimatorState:
   m_Name: lose_screen_hide
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: 7712534705456696752}
+  m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -147,8 +146,7 @@ AnimatorState:
   m_Name: lose_screen_show_up
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: 3618033690882772802}
+  m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -203,10 +201,7 @@ AnimatorStateMachine:
     m_Position: {x: 280, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7261927262327531507}
-    m_Position: {x: 300, y: 150, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -7218918202699997392}
-    m_Position: {x: 30, y: 170, z: 0}
+    m_Position: {x: 300, y: 190, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -7210890955736371133}
@@ -214,8 +209,8 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 150, y: 10, z: 0}
-  m_EntryPosition: {x: 550, y: 150, z: 0}
+  m_AnyStatePosition: {x: 170, y: 10, z: 0}
+  m_EntryPosition: {x: 560, y: 180, z: 0}
   m_ExitPosition: {x: 490, y: 40, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 7261927262327531507}
