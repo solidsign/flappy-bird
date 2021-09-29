@@ -12,14 +12,15 @@ sealed class Loader : MonoBehaviour {
     private Timer _timer;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private Configuration configuration;
+    [SerializeField] private UI ui;
+    [SerializeField] private ScoreUI scoreUI;
+    [Header("Parallax")]
     [SerializeField] private ParalaxSettings foregroundSettings;
     [SerializeField] private Transform fgObj1;
     [SerializeField] private Transform fgObj2;
     [SerializeField] private ParalaxSettings backgroundSettings;
     [SerializeField] private Transform bgObj1;
     [SerializeField] private Transform bgObj2;
-    [SerializeField] private UI ui;
-    [SerializeField] private ScoreUI scoreUI;
     [Header("Audio")]
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private List<AudioClip> jumpSounds;
