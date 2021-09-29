@@ -11,8 +11,10 @@ namespace Systems
         private Timer _timer;
         private Configuration _config;
         private EcsFilter<ParalaxObject> _filter;
+        private EcsFilter<Dead> _playerDead;
         public void Run()
         {
+            if (!_playerDead.IsEmpty()) return;
             foreach (var i in _filter)
             {
                 ref var paralax = ref _filter.Get1(i);
