@@ -737,6 +737,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 1309137860}
   configuration: {fileID: 11400000, guid: 3fe1804c91e66d245a8dfac1c1bf63ae, type: 2}
+  foregroundSettings: {fileID: 11400000, guid: 914f9f094cd1d2b498f325a65961feb7, type: 2}
+  fgObj1: {fileID: 1255673797}
+  fgObj2: {fileID: 1795465226}
+  backgroundSettings: {fileID: 11400000, guid: c8829e8cfa728004dbefe0ecc8c95e4e, type: 2}
+  bgObj1: {fileID: 175555298}
+  bgObj2: {fileID: 327479166}
   ui:
     loseScreen: {fileID: 1614667432}
   scoreUI:

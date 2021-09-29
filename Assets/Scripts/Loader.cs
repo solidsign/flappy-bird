@@ -12,6 +12,12 @@ sealed class Loader : MonoBehaviour {
     private Timer _timer;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private Configuration configuration;
+    [SerializeField] private ParalaxSettings foregroundSettings;
+    [SerializeField] private Transform fgObj1;
+    [SerializeField] private Transform fgObj2;
+    [SerializeField] private ParalaxSettings backgroundSettings;
+    [SerializeField] private Transform bgObj1;
+    [SerializeField] private Transform bgObj2;
     [SerializeField] private UI ui;
     [SerializeField] private ScoreUI scoreUI;
     [Header("Audio")]
@@ -23,7 +29,12 @@ sealed class Loader : MonoBehaviour {
     private void Start () {
         _world = new EcsWorld ();
         _systems = new EcsSystems (_world);
+        
         _timer = new Timer();
+        
+        _world.NewEntity().Replace(new ParalaxObject() {Obj1 = fgObj1, Obj2 = fgObj2, Settings = foregroundSettings});
+        _world.NewEntity().Replace(new ParalaxObject() {Obj1 = bgObj1, Obj2 = bgObj2, Settings = backgroundSettings});
+        
 #if UNITY_EDITOR
         Leopotam.Ecs.UnityIntegration.EcsWorldObserver.Create (_world);
         Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create (_systems);
@@ -51,6 +62,8 @@ sealed class Loader : MonoBehaviour {
             .Add(new SoundPlaySystem<LoseSound>(sfxSource, loseSounds))
             .Add(new SoundPlaySystem<ScoreSound>(sfxSource, scoreSounds))
             .Add(new SoundPlaySystem<HighscoreSound>(sfxSource, highscoreSounds))
+            
+            .Add(new ParalaxSystem())
                 
             // register one-frame components (order is important), for example:
             .OneFrame<JumpSound>()
