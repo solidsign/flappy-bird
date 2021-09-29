@@ -12,8 +12,10 @@ sealed class Loader : MonoBehaviour {
     private Timer _timer;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private Configuration configuration;
+    [Header("UI")]
     [SerializeField] private UI ui;
     [SerializeField] private ScoreUI scoreUI;
+    [SerializeField] private Animator loseScreenAnimator;
     [Header("Parallax")]
     [SerializeField] private ParalaxSettings foregroundSettings;
     [SerializeField] private Transform fgObj1;
@@ -27,6 +29,7 @@ sealed class Loader : MonoBehaviour {
     [SerializeField] private List<AudioClip> scoreSounds;
     [SerializeField] private List<AudioClip> highscoreSounds;
     [SerializeField] private List<AudioClip> loseSounds;
+
     private void Start () {
         _world = new EcsWorld ();
         _systems = new EcsSystems (_world);
@@ -44,6 +47,7 @@ sealed class Loader : MonoBehaviour {
             .Add(new PlayerInputSystem())
             .Add(new GameOverSystem())
             .Add(new RestartGameSystem())
+            .Add(new LoseScreenAnimationSystem(loseScreenAnimator))
             
             .Add(new PlayerInitSystem())
             .Add(new ObstacleInitSystem())
