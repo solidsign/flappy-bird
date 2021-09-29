@@ -10,6 +10,9 @@ namespace Systems
         private EcsFilter<Dead> _gameOver;
         [EcsIgnoreInject] private Animator _animator;
         private bool _shown = false;
+        private static readonly int Hide = Animator.StringToHash("_hide");
+        private static readonly int Show = Animator.StringToHash("_show");
+
         public LoseScreenAnimationSystem(Animator loseScreenAnimator)
         {
             _animator = loseScreenAnimator;
@@ -19,14 +22,14 @@ namespace Systems
         {
             if (_shown && !_restart.IsEmpty())
             {
-                _animator.SetTrigger("_hide");
+                _animator.SetTrigger(Hide);
                 _shown = false;
                 return;
             }
 
             if (!_shown && !_gameOver.IsEmpty())
             {
-                _animator.SetTrigger("_show");
+                _animator.SetTrigger(Show);
                 _shown = true;
                 return;
             }
